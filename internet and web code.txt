@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    .gender, .category {
+      display: flex;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .category label {
+      display: inline-block;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Product Showcase</h1>
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Product ID</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+    <!-- Generate 8 rows, 4 products per row -->
+    <!-- We'll show 2 products per row visually as 4 columns of data total -->
+    <!-- Repeat blocks with placeholder image -->
+    <!-- Total: 32 Products -->
+    <!-- Example with dummy data -->
+    <!-- Start looping 8 times for rows -->
+    <!-- Each row shows 4 products -->
+    <!-- Replace image links with real ones or placeholders -->
+    <!-- For demo purposes -->
+    {% for row in range(8) %}
+    <tr>
+      {% for col in range(4) %}
+      <td><img src="https://via.placeholder.com/80" alt="Product Image"></td>
+      <td>Product_{{ row * 4 + col + 1 }}</td>
+      <td>$ {{ (row * 4 + col + 1) * 5 }}</td>
+      <td><img src="https://via.placeholder.com/80" alt="Product Image"></td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Customer Registration Form</h2>
+  <form>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Telephone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Gender</label>
+    <div class="gender">
+      <label><input type="radio" name="gender" value="male"> Male</label>
+      <label><input type="radio" name="gender" value="female"> Female</label>
+    </div>
+
+    <label for="country">Country of Birth</label>
+    <select id="country" name="country">
+      <option>Kenya</option>
+      <option>Uganda</option>
+      <option>Tanzania</option>
+      <option>Rwanda</option>
+      <option>Burundi</option>
+      <option>South Sudan</option>
+    </select>
+
+    <label>Product Category</label>
+    <div class="category">
+      <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+      <label><input type="checkbox" name="category" value="fashion"> Fashion</label>
+      <label><input type="checkbox" name="category" value="home"> Home</label>
+      <label><input type="checkbox" name="category" value="books"> Books</label>
+    </div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
